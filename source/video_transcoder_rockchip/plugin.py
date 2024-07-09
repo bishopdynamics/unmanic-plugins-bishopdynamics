@@ -26,17 +26,17 @@
 import logging
 import os
 
-from video_transcoder_apple.lib import plugin_stream_mapper
-from video_transcoder_apple.lib.ffmpeg import Parser, Probe
-from video_transcoder_apple.lib.global_settings import GlobalSettings
-from video_transcoder_apple.lib.encoders.videotoolbox import VideoToolboxEncoder
+from video_transcoder_rockchip.lib import plugin_stream_mapper
+from video_transcoder_rockchip.lib.ffmpeg import Parser, Probe
+from video_transcoder_rockchip.lib.global_settings import GlobalSettings
+from video_transcoder_rockchip.lib.encoders.rockchip import RockchipEncoder
 
 
 from unmanic.libs.unplugins.settings import PluginSettings
 from unmanic.libs.directoryinfo import UnmanicDirectoryInfo
 
 # Configure plugin logger
-logger = logging.getLogger("Unmanic.Plugin.video_transcoder_apple")
+logger = logging.getLogger("Unmanic.Plugin.video_transcoder_rockchip")
 
 
 class Settings(PluginSettings):
@@ -81,7 +81,7 @@ class Settings(PluginSettings):
     def __available_encoders(self):
         return_encoders = {}
         encoder_libs = [
-            VideoToolboxEncoder,
+            RockchipEncoder,
         ]
         for encoder_class in encoder_libs:
             encoder_lib = encoder_class(self)
@@ -98,7 +98,7 @@ class Settings(PluginSettings):
         # Initial options forces the order they appear in the settings list
         # We need this because some encoders have settings that
         # Fetch all encoder settings from encoder libs
-        libx_options = VideoToolboxEncoder(self.settings).options()
+        libx_options = RockchipEncoder(self.settings).options()
         return {
             **libx_options,
         }
@@ -125,7 +125,7 @@ class Settings(PluginSettings):
 def file_marked_as_force_transcoded(path):
     directory_info = UnmanicDirectoryInfo(os.path.dirname(path))
     try:
-        has_been_force_transcoded = directory_info.get('video_transcoder_apple', os.path.basename(path))
+        has_been_force_transcoded = directory_info.get('video_transcoder_rockchip', os.path.basename(path))
     except NoSectionError as e:
         has_been_force_transcoded = ''
     except NoOptionError as e:
@@ -297,6 +297,6 @@ def on_postprocessor_task_results(data):
         cache_directory = os.path.dirname(data.get('final_cache_path'))
         if os.path.exists(os.path.join(cache_directory, '.force_transcode')):
             directory_info = UnmanicDirectoryInfo(os.path.dirname(original_source_path))
-            directory_info.set('video_transcoder_apple', os.path.basename(original_source_path), 'force_transcoded')
+            directory_info.set('video_transcoder_rockchip', os.path.basename(original_source_path), 'force_transcoded')
             directory_info.save()
             logger.debug("Ignore on next scan written for '%s'.", original_source_path)

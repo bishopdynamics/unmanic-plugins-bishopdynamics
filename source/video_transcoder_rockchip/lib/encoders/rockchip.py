@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    plugins.videotoolbox.py
+    plugins.rockchip.py
 
     Written by:               Josh.5 <jsunnex@gmail.com>
     Date:                     12 Jun 2022, (9:48 AM)
@@ -26,20 +26,20 @@
 """
 
 
-class VideoToolboxEncoder:
+class RockchipEncoder:
 
     def __init__(self, settings):
         self.settings = settings
 
     def provides(self):
         return {
-            "h264_videotoolbox": {
+            "h264_rkmpp": {
                 "codec": "h264",
-                "label": "CPU - h264_videotoolbox",
+                "label": "CPU - h264_rkmpp",
             },
-            "hevc_videotoolbox": {
+            "hevc_rkmpp": {
                 "codec": "hevc",
-                "label": "CPU - hevc_videotoolbox",
+                "label": "CPU - hevc_rkmpp",
             },
         }
 
@@ -88,9 +88,9 @@ class VideoToolboxEncoder:
             ]
             # TODO: Calculate best crf based on source bitrate
             default_crf = defaults.get('constant_quality_scale')
-            if self.settings.get_setting('video_encoder') in ['hevc_videotoolbox']:
+            if self.settings.get_setting('video_encoder') in ['hevc_rkmpp']:
                 default_crf = 28
-            elif self.settings.get_setting('video_encoder') in ['h264_videotoolbox']:
+            elif self.settings.get_setting('video_encoder') in ['h264_rkmpp']:
                 default_crf = 23
             stream_encoding += ['-crf', str(default_crf)]
             return stream_encoding
@@ -196,7 +196,7 @@ class VideoToolboxEncoder:
                 "label": "Zero latency – good for fast encoding and low-latency streaming",
             },
         ]
-        if self.settings.get_setting('video_encoder') in ['h264_videotoolbox']:
+        if self.settings.get_setting('video_encoder') in ['h264_rkmpp']:
             values["select_options"] = common_select_options + [
                 {
                     "value": "film",
@@ -207,7 +207,7 @@ class VideoToolboxEncoder:
                     "label": "Still image – good for slideshow-like content",
                 },
             ]
-        elif self.settings.get_setting('video_encoder') in ['hevc_videotoolbox']:
+        elif self.settings.get_setting('video_encoder') in ['hevc_rkmpp']:
             values["select_options"] = common_select_options
         self.__set_default_option(values['select_options'], 'tune')
         if self.settings.get_setting('mode') not in ['standard']:
@@ -221,7 +221,7 @@ class VideoToolboxEncoder:
             "input_type":     "select",
             "select_options": [],
         }
-        if self.settings.get_setting('video_encoder') in ['h264_videotoolbox']:
+        if self.settings.get_setting('video_encoder') in ['h264_rkmpp']:
             values["select_options"] = [
                 {
                     "value": "auto",
@@ -252,7 +252,7 @@ class VideoToolboxEncoder:
                     "label": "High444",
                 },
             ]
-        elif self.settings.get_setting('video_encoder') in ['hevc_videotoolbox']:
+        elif self.settings.get_setting('video_encoder') in ['hevc_rkmpp']:
             values["select_options"] = [
                 {
                     "value": "auto",
@@ -377,10 +377,10 @@ class VideoToolboxEncoder:
             values["display"] = "hidden"
         if self.settings.get_setting('encoder_ratecontrol_method') not in ['CRF']:
             values["display"] = "hidden"
-        if self.settings.get_setting('video_encoder') in ['h264_videotoolbox']:
-            values["description"] = "Default value for h264_videotoolbox = 23"
-        elif self.settings.get_setting('video_encoder') in ['hevc_videotoolbox']:
-            values["description"] = "Default value for hevc_videotoolbox = 28 (equivalent to 23 in h264_videotoolbox)"
+        if self.settings.get_setting('video_encoder') in ['h264_rkmpp']:
+            values["description"] = "Default value for h264_rkmpp = 23"
+        elif self.settings.get_setting('video_encoder') in ['hevc_rkmpp']:
+            values["description"] = "Default value for hevc_rkmpp = 28 (equivalent to 23 in h264_rkmpp)"
         return values
 
     def get_average_bitrate_form_settings(self):
