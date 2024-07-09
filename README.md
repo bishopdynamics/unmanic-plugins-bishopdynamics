@@ -1,5 +1,9 @@
 # Unmanic Plugins by BishopDynamics
 
+## Included Plugins
+
+* `video_transcoder_apple` - Transcode the video streams of a video file using Apple videotoolbox hardware accelleration on Apple Silicon SoCs
+
 ## Instructions
 
 ### Repo URL:

@@ -3,7 +3,7 @@
     "compatibility": [
         2
     ],
-    "description": "Transcode the video streams of a video file using Apple videotoolbox",
+    "description": "Transcode the video streams of a video file using Apple videotoolbox hardware accelleration on Apple Silicon SoCs",
     "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/master/source/video_transcoder_apple/icon.png",
     "id": "video_transcoder_apple",
     "name": "Transcode Video Files with Apple videotoolbox",
