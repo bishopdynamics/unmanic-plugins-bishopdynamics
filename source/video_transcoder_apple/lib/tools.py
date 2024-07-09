@@ -25,7 +25,7 @@ import logging
 import re
 import subprocess
 
-from video_transcoder.lib.ffmpeg import StreamMapper
+from video_transcoder_apple.lib.ffmpeg import StreamMapper
 
 image_video_codecs = [
     'alias_pix',
@@ -137,7 +137,7 @@ def detect_plack_bars(abspath, probe_data):
     :param probe_data:
     :return:
     """
-    logger = logging.getLogger("Unmanic.Plugin.video_transcoder")
+    logger = logging.getLogger("Unmanic.Plugin.video_transcoder_apple")
 
     # Fetch the current video width/height from the file probe
     vid_width, vid_height, video_stream_index = get_video_stream_data(probe_data.get('streams'))

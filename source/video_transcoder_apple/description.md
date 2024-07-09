@@ -1,14 +1,6 @@
 
 ---
 
-##### Links:
-
-- [Support](https://unmanic.app/discord)
-- [Issues/Feature Requests](https://github.com/Unmanic/plugin.video_transcoder/issues)
-- [Pull Requests](https://github.com/Unmanic/plugin.video_transcoder/pulls)
-
----
-
 ##### Documentation:
 
 For information on the available encoder settings:

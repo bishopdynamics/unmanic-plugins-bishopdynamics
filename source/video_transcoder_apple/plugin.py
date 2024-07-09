@@ -31,9 +31,6 @@ from video_transcoder_apple.lib.ffmpeg import Parser, Probe
 from video_transcoder_apple.lib.global_settings import GlobalSettings
 from video_transcoder_apple.lib.encoders.videotoolbox import VideoToolboxEncoder
 
-# from video_transcoder_apple.lib.encoders.qsv import QsvEncoder
-# from video_transcoder_apple.lib.encoders.vaapi import VaapiEncoder
-# from video_transcoder_apple.lib.encoders.nvenc import NvencEncoder
 
 from unmanic.libs.unplugins.settings import PluginSettings
 from unmanic.libs.directoryinfo import UnmanicDirectoryInfo
