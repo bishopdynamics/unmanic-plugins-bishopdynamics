@@ -2,7 +2,18 @@
 
 ## Included Plugins
 
-* `video_transcoder_apple` - Transcode the video streams of a video file using Apple videotoolbox hardware accelleration on Apple Silicon SoCs
+### `video_transcoder_apple`
+Transcode the video streams of a video file using Apple videotoolbox hardware accelleration on Apple Silicon SoCs
+
+Install this instead of the official `video_transcoder` plugin, to take advantage of hardware acceleration on Apple Silicon.
+
+This is pretty much just a search-and-replace of `libx265` -> `hevc_videotoolbox`, and `libx264` -> `h264_videotoolbox`. 
+
+You need to install ffmpeg from [Homebrew](https://brew.sh) to use this:
+```bash
+brew install ffmpeg
+```
+
 
 ## Instructions
 
