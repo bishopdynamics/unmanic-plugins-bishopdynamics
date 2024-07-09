@@ -1,0 +1,16 @@
+{
+    "author": "Josh.5, BishopDynamics",
+    "compatibility": [
+        2
+    ],
+    "description": "Transcode the video streams of a video file using Apple videotoolbox",
+    "icon": "https://raw.githubusercontent.com/Unmanic/plugin.video_transcoder/master/icon.png",
+    "id": "video_transcoder_apple",
+    "name": "Transcode Video Files with Apple videotoolbox",
+    "priorities": {
+        "on_library_management_file_test": 10,
+        "on_worker_process": 1
+    },
+    "tags": "video,ffmpeg",
+    "version": "0.0.1"
+}

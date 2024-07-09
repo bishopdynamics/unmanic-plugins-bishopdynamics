@@ -1,11 +1,11 @@
-# Unmanic Plugins by <!-- your name here -->
+# Unmanic Plugins by BishopDynamics
 
 ## Instructions
 
 ### Repo URL:
-<!-- Replace the below link with your own repo URL (found in the 'repo' git branch) -->
+
 ```
-https://raw.githubusercontent.com/Unmanic/unmanic-plugins/repo/repo.json
+https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/repo/repo.json
 ```
 
 
