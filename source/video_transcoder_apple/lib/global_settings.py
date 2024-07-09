@@ -32,9 +32,6 @@ supported_codecs = {
     "hevc": {
         "label": "HEVC/H265"
     },
-    "av1":  {
-        "label": "AV1"
-    },
 }
 
 
