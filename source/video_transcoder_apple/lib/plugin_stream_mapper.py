@@ -145,9 +145,6 @@ class PluginStreamMapper(StreamMapper):
 
         # Load encoder classes
         libx_encoder = VideoToolboxEncoder(self.settings)
-        # qsv_encoder = QsvEncoder(self.settings)
-        # vaapi_encoder = VaapiEncoder(self.settings)
-        # nvenc_encoder = NvencEncoder(self.settings)
 
         # Apply smart filters first
         required_hw_smart_filters = []
@@ -157,12 +154,6 @@ class PluginStreamMapper(StreamMapper):
             if self.settings.get_setting('target_resolution') not in ['source']:
                 vid_width, vid_height = self.scale_resolution(stream_info)
                 if vid_height:
-                    # Apply scale with only height to keep aspect ratio
-                    # if self.settings.get_setting('video_encoder') in qsv_encoder.provides():
-                    #     required_hw_smart_filters.append({'scale': [vid_width, vid_height]})
-                    # elif self.settings.get_setting('video_encoder') in nvenc_encoder.provides():
-                    #     required_hw_smart_filters.append({'scale': [vid_width, vid_height]})
-                    # else:
                     software_filters.append('scale=-1:{}'.format(vid_height))
 
         # Apply custom software filters
@@ -170,31 +161,6 @@ class PluginStreamMapper(StreamMapper):
             for software_filter in self.settings.get_setting('custom_software_filters').splitlines():
                 if software_filter.strip():
                     software_filters.append(software_filter.strip())
-
-        # Check for hardware encoders that required video filters
-        # if self.settings.get_setting('video_encoder') in qsv_encoder.provides():
-        #     # Add filtergraph required for using QSV encoding
-        #     generic_kwargs, advanced_kwargs, filter_args = qsv_encoder.generate_filtergraphs(self.settings, software_filters,
-        #                                                                                      required_hw_smart_filters)
-        #     self.set_ffmpeg_generic_options(**generic_kwargs)
-        #     self.set_ffmpeg_advanced_options(**advanced_kwargs)
-        #     hardware_filters += filter_args
-        # elif self.settings.get_setting('video_encoder') in vaapi_encoder.provides():
-        #     # Add filtergraph required for using VAAPI encoding
-        #     hardware_filters += vaapi_encoder.generate_filtergraphs()
-        #     # If we are using software filters, then disable vaapi surfaces.
-        #     # Instead, output software frames
-        #     if software_filters:
-        #         self.set_ffmpeg_generic_options(**{'-hwaccel_output_format': 'nv12'})
-        # elif self.settings.get_setting('video_encoder') in nvenc_encoder.provides():
-        #     # Add filtergraph required for using CUDA encoding
-        #     hardware_filters += nvenc_encoder.generate_filtergraphs(software_filters, required_hw_smart_filters)
-        #     # If we are using software filters, then disable cuda surfaces.
-        #     # Instead, output software frames
-        #     if software_filters:
-        #         self.set_ffmpeg_generic_options(**{'-hwaccel_output_format': 'nv12'})
-
-        # TODO: Add HW scaling filter if available (disable software filter above)
 
         # Return here if there are no filters to apply
         if not software_filters and not hardware_filters:
@@ -313,21 +279,11 @@ class PluginStreamMapper(StreamMapper):
 
                 # Load encoder classes
                 libx_encoder = VideoToolboxEncoder(self.settings)
-                # qsv_encoder = QsvEncoder(self.settings)
-                # vaapi_encoder = VaapiEncoder(self.settings)
-                # nvenc_encoder = NvencEncoder(self.settings)
 
                 # Add encoder args
                 if self.settings.get_setting('video_encoder') in libx_encoder.provides():
                     stream_encoding += libx_encoder.args(stream_id)
-                # elif self.settings.get_setting('video_encoder') in qsv_encoder.provides():
-                #     stream_encoding += qsv_encoder.args(stream_id)
-                # elif self.settings.get_setting('video_encoder') in vaapi_encoder.provides():
-                #     stream_encoding += vaapi_encoder.args(stream_id)
-                # elif self.settings.get_setting('video_encoder') in nvenc_encoder.provides():
-                #     generic_kwargs, stream_encoding_args = nvenc_encoder.args(stream_info, stream_id)
-                #     self.set_ffmpeg_generic_options(**generic_kwargs)
-                #     stream_encoding += stream_encoding_args
+
         elif codec_type in ['data']:
             if not self.settings.get_setting('apply_smart_filters'):
                 # If smart filters are not enabled, return 'False' to let the default mapping just copy the data stream
