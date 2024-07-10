@@ -14,24 +14,6 @@ You need to install ffmpeg from [Homebrew](https://brew.sh) to use this:
 brew install ffmpeg
 ```
 
----
-### `video_transcoder_rockchip`
-Transcode the video streams of a video file using hardware accelleration on Rockchip SoCs
-
-Install this instead of the official `video_transcoder` plugin, to take advantage of hardware acceleration on Rockchip hardware.
-
-This is pretty much just a search-and-replace of `libx265` -> `hevc_rkmpp`, and `libx264` -> `h264_rkmpp`. 
-
-You need to install [special version of ffmpeg](https://github.com/MarcA711/Rockchip-FFmpeg-Builds) compiled with Rockchip support.
-
-A `Dockerfile` example:
-```
-FROM josh5/unmanic:latest
-
-# Replace included ffmpeg and ffprobe with recent Rockchip versions
-ADD --chmod=111 https://github.com/MarcA711/Rockchip-FFmpeg-Builds/releases/download/6.1-5/ffmpeg /usr/lib/jellyfin-ffmpeg/
-ADD --chmod=111 https://github.com/MarcA711/Rockchip-FFmpeg-Builds/releases/download/6.1-5/ffprobe /usr/lib/jellyfin-ffmpeg/
-```
 
 ## Instructions
 
