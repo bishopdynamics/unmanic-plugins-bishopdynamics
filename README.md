@@ -30,12 +30,16 @@ You need to install [special version of ffmpeg](https://github.com/MarcA711/Rock
 
 ---
 
-### `convert_subtitle_streams_94213_to_srt`
+### `extract_mov_text_subtitles_to_files`
 
-Convert any 94213 subtitle streams into SRT format
+Convert any mov_text / 94213 subtitle streams into external SRT file
+
 This plugin is meant to solve the case where converting from MP4 container to MKV container fails with: `Subtitle codec 94213 is not supported.`
 
-This is a slightly tweaked version of the official plugin `convert_subtitle_streams_ass_to_srt`, replacing `ass` for `94213`.
+This is a slightly tweaked version of the official plugin `extract_srt_subtitles_to_files`, limited to ONLY `mov_text` codec subtitles.
+
+You should pair this up with `remove_streams_by_codec` and configure it to remove `mov_text` streams.
+Make sure `remove_streams_by_codec` runs AFTER this one!
 
 ## Instructions
 
