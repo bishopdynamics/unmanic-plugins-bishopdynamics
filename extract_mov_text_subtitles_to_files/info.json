@@ -1,0 +1,14 @@
+{
+  "author": "Josh.5, Bambanah, BishopDynamics",
+  "compatibility": [1, 2],
+  "description": "Extract mov_text/94213 subtitle streams to *.srt files.",
+  "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/refs/heads/master/source/extract_mov_text_subtitles_to_files/icon.png",
+  "id": "extract_mov_text_subtitles_to_files",
+  "name": "Extract mov_text/94213 subtitle streams to SRT files",
+  "platform": ["all"],
+  "priorities": {
+    "on_worker_process": 2
+  },
+  "tags": "subtitle,ffmpeg",
+  "version": "0.0.11"
+}

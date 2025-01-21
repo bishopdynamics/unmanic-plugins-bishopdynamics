@@ -1,0 +1,62 @@
+{
+    "repo": {
+        "id": "repository.bishopdynamics",
+        "name": "BishopDynamics plugin repo",
+        "icon": "",
+        "repo_data_directory": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/repo/",
+        "repo_data_url": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/repo/repo.json"
+    },
+    "plugins": [
+        {
+            "author": "Josh.5, BishopDynamics",
+            "compatibility": [
+                2
+            ],
+            "description": "Transcode the video streams of a video file using hardware accelleration on Rockchip SoCs",
+            "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/master/source/video_transcoder_rockchip/icon.png",
+            "id": "video_transcoder_rockchip",
+            "name": "Transcode Video Files with Rockchip",
+            "priorities": {
+                "on_library_management_file_test": 10,
+                "on_worker_process": 1
+            },
+            "tags": "video,ffmpeg",
+            "version": "0.0.1"
+        },
+        {
+            "author": "Josh.5, Bambanah, BishopDynamics",
+            "compatibility": [
+                1,
+                2
+            ],
+            "description": "Extract mov_text/94213 subtitle streams to *.srt files.",
+            "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/refs/heads/master/source/extract_mov_text_subtitles_to_files/icon.png",
+            "id": "extract_mov_text_subtitles_to_files",
+            "name": "Extract mov_text/94213 subtitle streams to SRT files",
+            "platform": [
+                "all"
+            ],
+            "priorities": {
+                "on_worker_process": 2
+            },
+            "tags": "subtitle,ffmpeg",
+            "version": "0.0.11"
+        },
+        {
+            "author": "Josh.5, BishopDynamics",
+            "compatibility": [
+                2
+            ],
+            "description": "Transcode the video streams of a video file using Apple videotoolbox hardware accelleration on Apple Silicon SoCs",
+            "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/master/source/video_transcoder_apple/icon.png",
+            "id": "video_transcoder_apple",
+            "name": "Transcode Video Files with Apple videotoolbox",
+            "priorities": {
+                "on_library_management_file_test": 10,
+                "on_worker_process": 1
+            },
+            "tags": "video,ffmpeg",
+            "version": "0.0.1"
+        }
+    ]
+}
