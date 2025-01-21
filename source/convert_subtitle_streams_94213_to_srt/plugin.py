@@ -58,7 +58,7 @@ class PluginStreamMapper(StreamMapper):
         """
         return {
             'stream_mapping':  ['-map', '0:s:{}'.format(stream_id)],
-            'stream_encoding': ['-c:s:{}'.format(stream_id), 'srt'],
+            'stream_encoding': ['-c:s:{}'.format(stream_id), 'ass'],
         }
 
 
