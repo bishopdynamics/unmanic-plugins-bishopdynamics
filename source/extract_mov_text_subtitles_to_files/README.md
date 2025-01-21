@@ -1,4 +1,4 @@
-# Convert any 94213 subtitle streams in videos to SRT
+# Extract only mov_text/94213 subtitle streams to SRT files
 
 Plugin for [Unmanic](https://github.com/Unmanic)
 
