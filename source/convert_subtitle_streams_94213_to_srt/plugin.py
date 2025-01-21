@@ -43,7 +43,7 @@ class PluginStreamMapper(StreamMapper):
 
     def test_stream_needs_processing(self, stream_info: dict):
         """Only process 94213 files"""
-        logger.debug("File has subtitle codec: {}".format(stream_info.get('codec_name').lower()))
+        logger.info("File has subtitle codec: {}".format(stream_info.get('codec_name').lower()))
         if stream_info.get('codec_name').lower() == "mov_text":
             return True
         return False
@@ -58,7 +58,7 @@ class PluginStreamMapper(StreamMapper):
         """
         return {
             'stream_mapping':  ['-map', '0:s:{}'.format(stream_id)],
-            'stream_encoding': ['-c:s:{}'.format(stream_id), 'subrip'],
+            'stream_encoding': ['-c:s:{}'.format(stream_id), 'mov_text'],
         }
 
 
