@@ -2,7 +2,7 @@
   "author": "Josh.5, BishopDynamics",
   "compatibility": [1, 2],
   "description": "Convert any 94213 subtitle streams in videos to subrip (SRT).",
-  "icon": "https://raw.githubusercontent.com/bishopdynamics/plugin.convert_subtitle_streams_94213_to_srt/master/icon.png",
+  "icon": "https://raw.githubusercontent.com/bishopdynamics/unmanic-plugins-bishopdynamics/refs/heads/master/source/convert_subtitle_streams_94213_to_srt/icon.png",
   "id": "convert_subtitle_streams_94213_to_srt",
   "name": "Convert any 94213 subtitle streams in videos to SRT",
   "platform": ["all"],
