@@ -1,3 +1,0 @@
-[submodule "lib/ffmpeg"]
-	path = lib/ffmpeg
-	url = git@github.com:Josh5/unmanic.plugin.helpers.ffmpeg.git
